@@ -1,0 +1,110 @@
+[
+  {
+    "name": "北部",
+    "code": "Northern",
+    "list": [{
+      "name": "台北",
+      "code": "Taipei"
+    },
+    {
+      "name": "新北",
+      "code": "New Taipei"
+    },
+    {
+      "name": "桃園",
+      "code": "Taoyuan"
+    },
+    {
+      "name": "新竹",
+      "code": "Hsinchu"
+    },
+    {
+      "name": "宜蘭",
+      "code": "Yilan"
+    },
+    {
+      "name": "基隆",
+      "code": "Keelung"
+    }
+  ]},{
+    "name": "中部",
+    "code": "Central",
+    "list": [{
+      "name": "台中",
+      "code": "Taizhong"
+    },
+    {
+      "name": "彰化",
+      "code": "Changhua"
+    },
+    {
+      "name": "雲林",
+      "code": "Yunlin"
+    },
+    {
+      "name": "苗栗",
+      "code": "Miaoli"
+    },
+    {
+      "name": "南投",
+      "code": "Nantou"
+    }
+  ]},
+  {
+    "name": "南部",
+    "code": "Southern",
+    "list": [{
+      "name": "高雄",
+      "code": "Kaohsiung"
+    },
+    {
+      "name": "台南",
+      "code": "Tainan"
+    },
+    {
+      "name": "嘉義",
+      "code": "Chiayi"
+    },
+    {
+      "name": "屏東",
+      "code": "Pingtung"
+    }
+  ]},
+  {
+    "name": "東部與離島",
+    "code": "East",
+    "list": [
+    {
+      "name": "花蓮",
+      "code": "Tainan"
+    },
+    {
+      "name": "台東",
+      "code": "Kaohsiung"
+    },
+    {
+      "name": "澎湖",
+      "code": "Penghu"
+    },
+    {
+      "name": "綠島",
+      "code": "Green Island"
+    },
+    {
+      "name": "蘭嶼",
+      "code": "Orchid Island"
+    },
+    {
+      "name": "小琉球",
+      "code": "Liuqiu"
+    },
+    {
+      "name": "金門",
+      "code": "Kinmen"
+    },
+    {
+      "name": "馬祖",
+      "code": "Matsu"
+    }
+  ]}
+]

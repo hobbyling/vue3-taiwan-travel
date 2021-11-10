@@ -2,13 +2,27 @@
   <div class="side">
     <img src="../assets/logo.svg" alt="Travel Logo" class="logo">
     <div class="form">
+      <div class="form__item search">
+        <input type="text" placeholder="關鍵字">
+        <Search class="form__item__icon" />
+      </div>
+    </div>
+    <div class="form">
+      <h2>目的地</h2>
       <div class="form__item select">
         <span>目的地</span>
         <Arrow class="form__item__icon" />
       </div>
-      <div class="form__item search">
-        <input type="text" placeholder="關鍵字">
-        <Search class="form__item__icon" />
+      <!-- 下拉選單 -->
+      <div class="dropdown">
+        <div class="region" v-for="item in region" :key="item.code">
+          <div class="title">{{item.name}}</div>
+          <div class="btns">
+            <div v-for="area in item.list" :key="area.code" class="btn">
+              {{area.name}}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="theme">
@@ -26,6 +40,7 @@
 <script>
 import Arrow from '@/components/ArrowIcon.vue'
 import Search from '@/components/SearchIcon.vue'
+import regionJson from '@/utils/region'
 export default {
   name: 'Side',
   components: {
@@ -65,7 +80,11 @@ export default {
       {
         name: '觀光活動',
         image: require('@/assets/icon/class8.svg')
-      }]
+      }],
+      region: regionJson,
+      form: {
+        area: ''
+      }
     }
   }
 }
@@ -84,9 +103,27 @@ export default {
     margin-bottom: 24px;
   }
 
+  // 標題
+  h2 {
+      color: #222;
+      font-size: 18px;
+      font-weight: bold;
+      line-height: 24px;
+      letter-spacing: 0.15px;
+      text-align: left;
+      margin-bottom: 24px;
+      &::before{
+        display: block;
+        content: '';
+        border-top: 1px solid rgba(0,0,0,.08);
+        margin-bottom: 24px;
+      }
+    }
+
   // 表單
   .form {
-    width: calc(100% - 48px);
+    width: 100%;
+    position: relative;
     &__item {
       display: flex;
       justify-content: space-between;
@@ -98,7 +135,6 @@ export default {
       text-align: left;
       font-size: 18px;
       line-height: 27px;
-      width: calc(100% - 48px);
 
       &:last-child {
         margin: 24px 0;
@@ -118,22 +154,6 @@ export default {
 
   // 主題
   .theme {
-    h2 {
-      color: #222;
-      font-size: 18px;
-      font-weight: bold;
-      line-height: 24px;
-      letter-spacing: 0.15px;
-      text-align: left;
-      margin-bottom: 24px;
-      &::before{
-        display: block;
-        content: '';
-        border-top: 1px solid rgba(0,0,0,.08);
-        margin-bottom: 24px;
-      }
-    }
-
     &__items {
       width: 100%;
       display: flex;
@@ -167,4 +187,79 @@ export default {
     }
   }
 }
+
+// 目的地下拉選單
+.dropdown {
+  position: absolute;
+  width: calc(100% - 30px);
+  height: 400px;
+  overflow-y: scroll;
+  margin: 0 auto;
+  padding: 20px 15px;
+  background: #fff;
+  box-shadow: 0px 14px 24px rgba(0, 0, 0, 0.12);
+
+  .region{
+    margin-bottom: 20px;
+    .title {
+      text-align: left;
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .btns {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+
+      .btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #3FB195;
+        box-sizing: border-box;
+        border-radius: 8px;
+        background: #FFFFFF;
+        width: 75px;
+        height: 35px;
+        font-size: 18px;
+        line-height: 27px;
+        letter-spacing: 0.15px;
+        margin-bottom: 12px;
+        cursor: pointer;
+
+        &:nth-child(3n) {
+          margin-left: 18px;
+        }
+
+        &:nth-child(3n+2) {
+          margin-left: 18px;
+        }
+
+        &:hover {
+          background: #3FB195;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
+//捲軸底色
+.dropdown::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #fff;
+}
+//捲軸寬度
+.dropdown::-webkit-scrollbar {
+  width: 6px;
+  background-color: #fff;
+}
+//捲軸本體顏色
+.dropdown::-webkit-scrollbar-thumb {
+  background-color: #3FB195;
+}
+
 </style>
